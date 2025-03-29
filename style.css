@@ -1,0 +1,53 @@
+/* Estilos adicionales que no se pueden lograr fácilmente con Tailwind */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+/* Estilos para el modal */
+.modal-open {
+  overflow: hidden;
+}
+
+/* Estilos para las tarjetas de productos */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el botón de carrito */
+#cartButton {
+  transition: transform 0.3s ease;
+}
+
+#cartButton:hover {
+  transform: scale(1.1);
+}
+
+/* Animación para el skeleton loader */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+

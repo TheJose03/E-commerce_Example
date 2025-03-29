@@ -1,0 +1,368 @@
+
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechShop - Tu tienda online</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS personalizado -->
+    <link rel="stylesheet" href="styles.css">
+	  <link rel="icon" href="https://cdn-icons-png.freepik.com/256/11181/11181797.png?semt=ais_hybrid" type="image/x-icon">    
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <a href="#" class="flex items-center space-x-2">
+                    <img src="https://cdn-icons-png.freepik.com/256/11181/11181797.png" alt="TechShop Logo" class="w-8 h-8">
+                    <span class="text-xl font-bold text-blue-600">TechShop</span>
+                </a>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#inicio" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
+                    <a href="#categorias" class="text-gray-700 hover:text-blue-600 transition">Categorías</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" id="searchInput" placeholder="Buscar productos..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <button id="searchButton" class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <button id="cartButton" class="relative p-2 text-blue-600 hover:bg-blue-100 rounded-full transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span id="cartCount" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                    </button>
+                    <button class="md:hidden" id="mobileMenuButton">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="mobileMenu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="#inicio" class="block py-2 text-gray-700 hover:text-blue-600 transition">Inicio</a>
+                <a href="#categorias" class="block py-2 text-gray-700 hover:text-blue-600 transition">Categorías</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Sección de Inicio -->
+        <section id="inicio" class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4 text-gray-800">Bienvenido a TechShop</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">Tu tienda online de confianza para encontrar los mejores productos tecnológicos al mejor precio.</p>
+            <div class="w-24 h-1 bg-blue-600 mx-auto my-6"></div>
+        </section>
+
+        <!-- Sección de Categorías y Productos -->
+        <section id="categorias" class="mb-12">
+            <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Nuestros Productos</h2>
+            <div class="flex flex-wrap justify-center gap-3 mb-8">
+                <button type="button" class="px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 transition active" data-category="all">Todos</button>
+                <button type="button" class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition" data-category="electronics">Electrónica</button>
+                <button type="button" class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition" data-category="jewelery">Joyería</button>
+                <button type="button" class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition" data-category="men's clothing">Ropa Hombre</button>
+                <button type="button" class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 hover:bg-blue-600 hover:text-white transition" data-category="women's clothing">Ropa Mujer</button>
+            </div>
+            <div id="productsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <!-- Aquí se cargarán los productos dinámicamente -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-48 bg-gray-200 animate-pulse"></div>
+                    <div class="p-4">
+                        <div class="h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
+                        <div class="h-4 bg-gray-200 rounded animate-pulse mb-2 w-3/4"></div>
+                        <div class="h-10 bg-gray-200 rounded animate-pulse mb-2"></div>
+                        <div class="h-8 bg-gray-200 rounded animate-pulse w-1/3"></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-48 bg-gray-200 animate-pulse"></div>
+                    <div class="p-4">
+                        <div class="h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
+                        <div class="h-4 bg-gray-200 rounded animate-pulse mb-2 w-3/4"></div>
+                        <div class="h-10 bg-gray-200 rounded animate-pulse mb-2"></div>
+                        <div class="h-8 bg-gray-200 rounded animate-pulse w-1/3"></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-48 bg-gray-200 animate-pulse"></div>
+                    <div class="p-4">
+                        <div class="h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
+                        <div class="h-4 bg-gray-200 rounded animate-pulse mb-2 w-3/4"></div>
+                        <div class="h-10 bg-gray-200 rounded animate-pulse mb-2"></div>
+                        <div class="h-8 bg-gray-200 rounded animate-pulse w-1/3"></div>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="h-48 bg-gray-200 animate-pulse"></div>
+                    <div class="p-4">
+                        <div class="h-4 bg-gray-200 rounded animate-pulse mb-2"></div>
+                        <div class="h-4 bg-gray-200 rounded animate-pulse mb-2 w-3/4"></div>
+                        <div class="h-10 bg-gray-200 rounded animate-pulse mb-2"></div>
+                        <div class="h-8 bg-gray-200 rounded animate-pulse w-1/3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h5 class="text-xl font-bold mb-4">TechShop</h5>
+                    <p class="text-gray-300">Tu tienda online de confianza para productos tecnológicos.</p>
+                </div>
+                <div>
+                    <h5 class="text-xl font-bold mb-4">Enlaces</h5>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-300 hover:text-white transition">Inicio</a></li>
+                        <li><a href="#categorias" class="text-gray-300 hover:text-white transition">Productos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-xl font-bold mb-4">Contacto</h5>
+                    <ul class="space-y-2">
+                        <li class="flex items-center"><i class="fas fa-envelope mr-2"></i> info@techshop.com</li>
+                        <li class="flex items-center"><i class="fas fa-phone mr-2"></i> (123) 456-7890</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-6 border-gray-700">
+            <div class="text-center">
+                <p>&copy; 2024 TechShop. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Detalles del Producto -->
+    <div id="productDetailModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="fixed inset-0 bg-black opacity-50" id="productDetailOverlay"></div>
+            <div class="relative bg-white rounded-lg max-w-4xl w-full mx-auto shadow-xl">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <h3 class="text-xl font-semibold text-gray-900" id="productDetailTitle">Detalles del Producto</h3>
+                    <button type="button" class="text-gray-400 hover:text-gray-500" id="closeProductDetail">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex justify-center items-center bg-white p-4">
+                            <img id="productDetailImage" src="/placeholder.svg" alt="Producto" class="max-h-80 object-contain">
+                        </div>
+                        <div>
+                            <h2 id="productDetailName" class="text-2xl font-bold mb-2 text-gray-800"></h2>
+                            <p id="productDetailCategory" class="inline-block px-3 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800 mb-4"></p>
+                            <div class="mb-4">
+                                <div class="flex items-center mb-1">
+                                    <div class="flex text-yellow-400">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <span class="ml-2 text-gray-600">4.5/5</span>
+                                </div>
+                            </div>
+                            <p id="productDetailPrice" class="text-3xl font-bold text-blue-600 mb-4"></p>
+                            <p id="productDetailDescription" class="text-gray-600 mb-6"></p>
+                            <div class="flex items-center space-x-4">
+                                <div class="flex items-center border rounded-lg overflow-hidden">
+                                    <button id="detailDecreaseQuantity" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700">-</button>
+                                    <input type="number" id="detailQuantityInput" value="1" min="1" max="10" class="w-12 text-center border-0 focus:ring-0">
+                                    <button id="detailIncreaseQuantity" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700">+</button>
+                                </div>
+                                <button id="detailAddToCartButton" class="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition flex items-center">
+                                    <i class="fas fa-cart-plus mr-2"></i> Añadir al carrito
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Cantidad -->
+    <div id="quantityModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="fixed inset-0 bg-black opacity-50" id="quantityModalOverlay"></div>
+            <div class="relative bg-white rounded-lg max-w-md w-full mx-auto shadow-xl">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <h3 class="text-xl font-semibold text-gray-900">Seleccionar cantidad</h3>
+                    <button type="button" class="text-gray-400 hover:text-gray-500" id="closeQuantityModal">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <div class="text-center mb-6">
+                        <img id="modalProductImage" src="/placeholder.svg" alt="Producto" class="max-h-40 mx-auto mb-4">
+                        <h5 id="modalProductName" class="text-lg font-semibold"></h5>
+                        <p id="modalProductPrice" class="text-xl font-bold text-blue-600"></p>
+                    </div>
+                    <div class="mb-6">
+                        <label for="quantityInput" class="block text-sm font-medium text-gray-700 mb-2">Cantidad:</label>
+                        <div class="flex items-center justify-center">
+                            <button id="decreaseQuantity" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-l-lg">-</button>
+                            <input type="number" id="quantityInput" value="1" min="1" max="10" class="w-16 text-center border-y border-gray-300 focus:outline-none">
+                            <button id="increaseQuantity" class="px-3 py-1 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-r-lg">+</button>
+                        </div>
+                    </div>
+                    <div class="flex justify-end space-x-3">
+                        <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition" id="cancelQuantityButton">Cancelar</button>
+                        <button type="button" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" id="addToCartButton">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal del Carrito -->
+    <div id="cartModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="fixed inset-0 bg-black opacity-50" id="cartModalOverlay"></div>
+            <div class="relative bg-white rounded-lg max-w-4xl w-full mx-auto shadow-xl">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <h3 class="text-xl font-semibold text-gray-900">Carrito de compras</h3>
+                    <button type="button" class="text-gray-400 hover:text-gray-500" id="closeCartModal">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <div id="emptyCartMessage" class="text-center py-10">
+                        <i class="fas fa-shopping-cart text-gray-300 text-5xl mb-4"></i>
+                        <h5 class="text-xl font-semibold text-gray-700">Tu carrito está vacío</h5>
+                        <p class="text-gray-500">Añade productos para comenzar a comprar</p>
+                    </div>
+                    <div id="cartItems" class="hidden">
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-gray-200">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Producto</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Precio</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cantidad</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Subtotal</th>
+                                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cartItemsList" class="bg-white divide-y divide-gray-200">
+                                    <!-- Aquí se cargarán los items del carrito -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="flex justify-end mt-6">
+                            <div class="bg-gray-50 p-4 rounded-lg w-72">
+                                <h5 class="font-semibold text-lg mb-4">Resumen</h5>
+                                <div class="flex justify-between mb-2">
+                                    <span>Subtotal:</span>
+                                    <span id="cartSubtotal">$0.00</span>
+                                </div>
+                                <div class="flex justify-between mb-2">
+                                    <span>IVA (16%):</span>
+                                    <span id="cartTax">$0.00</span>
+                                </div>
+                                <div class="border-t border-gray-200 my-2 pt-2"></div>
+                                <div class="flex justify-between font-bold">
+                                    <span>Total:</span>
+                                    <span id="cartTotal">$0.00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center p-4 border-t bg-gray-50">
+                    <button type="button" class="px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg transition" id="clearCartButton">Vaciar carrito</button>
+                    <div>
+                        <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition mr-2" id="continueShoppingButton">Seguir comprando</button>
+                        <button type="button" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition" id="checkoutButton" disabled>Proceder al pago</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Pago -->
+    <div id="paymentModal" class="fixed inset-0 z-50 hidden overflow-y-auto">
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="fixed inset-0 bg-black opacity-50" id="paymentModalOverlay"></div>
+            <div class="relative bg-white rounded-lg max-w-4xl w-full mx-auto shadow-xl">
+                <div class="flex justify-between items-center p-4 border-b">
+                    <h3 class="text-xl font-semibold text-gray-900">Información de pago</h3>
+                    <button type="button" class="text-gray-400 hover:text-gray-500" id="closePaymentModal">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                <div class="p-6">
+                    <form id="paymentForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <h5 class="text-lg font-semibold mb-4">Información personal</h5>
+                                <div class="mb-4">
+                                    <label for="fullName" class="block text-sm font-medium text-gray-700 mb-1">Nombre completo</label>
+                                    <input type="text" id="fullName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Correo electrónico</label>
+                                    <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Teléfono</label>
+                                    <input type="tel" id="phone" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Dirección de envío</label>
+                                    <textarea id="address" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="text-lg font-semibold mb-4">Información de pago</h5>
+                                <div class="mb-4">
+                                    <label for="cardNumber" class="block text-sm font-medium text-gray-700 mb-1">Número de tarjeta</label>
+                                    <div class="flex">
+                                        <input type="text" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" class="w-full px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                        <span class="inline-flex items-center px-3 bg-gray-100 text-gray-500 border border-l-0 border-gray-300 rounded-r-md">
+                                            <i class="fab fa-cc-visa mr-1"></i>
+                                            <i class="fab fa-cc-mastercard"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="mb-4">
+                                        <label for="expiryDate" class="block text-sm font-medium text-gray-700 mb-1">Fecha de expiración</label>
+                                        <input type="text" id="expiryDate" placeholder="MM/AA" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="cvv" class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                                        <input type="text" id="cvv" placeholder="123" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                    </div>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="cardName" class="block text-sm font-medium text-gray-700 mb-1">Nombre en la tarjeta</label>
+                                    <input type="text" id="cardName" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="flex justify-end items-center p-4 border-t bg-gray-50">
+                    <button type="button" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition mr-2" id="cancelPaymentButton">Cancelar</button>
+                    <button type="button" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition" id="processPaymentButton">Pagar ahora</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reemplazar el script de Bootstrap con el script para los modales personalizados -->
+    <!-- jsPDF para generar facturas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <!-- JavaScript personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>
